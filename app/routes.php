@@ -9,14 +9,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
 Route::get('/', function()
 {
 	return View::make('hello');
 });
-
-Route::get('foo', function () {
-    return 'Hello World';
-});
-
 Route::get('/binance', 'HomeController@binanceAgain'); 
+Route::get('/coinbase', 'CoinbaseController@coinbaseAgain'); 
+Route::get('/kraken', 'KrakenController@krakenAgain'); 
+Route::get('/bithumb', 'BithumbController@bithumbAgain');
