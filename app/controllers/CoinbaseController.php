@@ -22,9 +22,9 @@ class CoinbaseController extends BaseController {
 		$currency = "USD";
 		?>
 		<!--result-->
-		<table>
+		<table id="table" cellspacing="0" width="100%" style="visibility: visible; width: 100%;" class="ui striped table dataTable no-footer" role="grid">
 			<thead>
-				<tr><th>Market</th><th>Sell Price</th><th>Buy Price</th><th>Currency</th></tr>
+				<tr><th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Market</th><th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Sell Price</th><th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Buy Price</th><th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Currency</th></tr>
 			</thead>
 			<tbody>
 				<?php
@@ -33,8 +33,8 @@ class CoinbaseController extends BaseController {
 					$buyPrice = $client->getBuyPrice("$finalv");
 					$sellPrice = $client->getSellPrice("$finalv");
 					?>
-						<tr>
-							<td><?php echo $sym; ?></td>
+						<tr id="0" role="row" class="odd">
+							<td style="color:#4183c4; padding:20px;"><?php echo $sym; ?></td>
 							<td><?php echo $sellPrice->getAmount(); ?></td>
 							<td><?php echo $buyPrice->getAmount(); ?></td>
 							<td><?php echo $currency; ?></td>

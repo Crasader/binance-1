@@ -26,11 +26,30 @@
 		<div id="table_wrapper" class="click dataTables_wrapper dt-semanticUI no-footer">
 			
 		</div>
-		
+
+		<!--<div style="margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0;" class="ui two column grid basic segment">
+				<div id="tfooter_paginate" class="column left aligned">
+					<div class="dataTables_paginate paging_full_numbers" id="table_paginate">
+						<div class="ui stackable pagination menu">
+							<div class="paginate_button item first disabled" id="table_first" href="#" aria-controls="table" data-dt-idx="0" tabindex="0">First</div>
+							<div class="paginate_button item previous disabled" id="table_previous" href="#" aria-controls="table" data-dt-idx="1" tabindex="0">Previous</div>
+							<a class="paginate_button item active" href="" aria-controls="table" data-dt-idx="2" tabindex="0">1</a>
+							<a class="paginate_button item " href="" aria-controls="table" data-dt-idx="3" tabindex="0">2</a>
+							<a class="paginate_button item " href="" aria-controls="table" data-dt-idx="4" tabindex="0">3</a>
+							<a class="paginate_button item " href="" aria-controls="table" data-dt-idx="5" tabindex="0">4</a>
+							<a class="paginate_button item " href="" aria-controls="table" data-dt-idx="6" tabindex="0">5</a>
+							<div class="paginate_button item disabled" id="table_ellipsis" href="#" aria-controls="table" data-dt-idx="7" tabindex="0">…</div>
+							<div class="paginate_button item next disabled" id="table_next" href="#" aria-controls="table" data-dt-idx="8" tabindex="0">Next</div>
+							<div class="paginate_button item last disabled" id="table_last" href="#" aria-controls="table" data-dt-idx="9" tabindex="0">Last</div>
+						</div>
+					</div>
+				</div>
+				<div id="tfooter_info" class="column left aligned"><a href=""><button class="ui large button" style="float: right;">Recently Added</button></a></div>
+			</div>-->
 		<div class="loading">Loading&#8230;</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>	
-			var base_url = '{{ url('/') }}'+'/kraken_res';
+			var base_url = '{{ url('/') }}'+'/binres';
 			setInterval(function() { 
 				jQuery.ajax({
 					url: base_url,
@@ -44,5 +63,4 @@
 			}, 8000);
 			 
 		</script>
-	</body>
-</html>
+		@include('html.footer')

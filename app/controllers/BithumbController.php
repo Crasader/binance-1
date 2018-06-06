@@ -18,8 +18,21 @@ class BithumbController extends BaseController {
 			}
 			$length = count($ary);
 			?>
-			<table>
-				<thead><tr><th>Market</th><th>Opening Price</th><th>Closing Price</th><th>Min Price</th><th>Max Price</th><th>Average Price</th><th>Volume 1day</th><th>Volume 7day</th><th>Buy Price</th><th>Sell Price</th></tr></thead>
+			<table id="table" cellspacing="0" width="100%" style="visibility: visible; width: 100%;" class="ui striped table dataTable no-footer" role="grid">
+				<thead>
+					<tr>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Market</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Opening Price</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Closing Price</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Min Price</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Max Price</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Average Price</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Volume 1day</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Volume 7day</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Buy Price</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Sell Price</th>
+					</tr>
+				</thead>
 				<tbody>
 				<?php
 			for ($i = 0; $i < $length; $i++) {
@@ -35,8 +48,8 @@ class BithumbController extends BaseController {
 					$buy_p = $result->data->$bn->buy_price;
 					$sell_p = $result->data->$bn->sell_price;
 					?>
-					<tr>
-						<td><?php echo $bn; ?></td>
+					<tr id="0" role="row" class="odd">
+						<td style="color:#4183c4; padding:20px;"><?php echo $bn; ?></td>
 						<td><?php echo $open_p; ?></td>
 						<td><?php echo $close_p; ?></td>
 						<td><?php echo $min_p; ?></td>

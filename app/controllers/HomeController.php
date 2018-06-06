@@ -11,7 +11,7 @@ class HomeController extends BaseController {
     }
 
 	public function binanceAgain() {			
-		return View::make("response/binance");
+		return View::make("newhome");		
 	}	
 	
 	public function binanceResponse() {
@@ -20,14 +20,24 @@ class HomeController extends BaseController {
 		$api = new Binance\API($apik,$apisec);
 		$ticker = $api->prices();	
 		/**Getting response**/
-		$api->miniTicker(function($api, $ticker) {		
-			?>
+		$api->miniTicker(function($api, $ticker) {			
+		?>
 			<!--result-->
-			<table>
-				<thead><tr><th>Market</th><th>Close</th><th>Open</th><th>High</th><th>Low</th><th>Volume</th><th>Quote Volume</th></tr></thead>
+			<table id="table" cellspacing="0" width="100%" style="visibility: visible; width: 100%;" class="ui striped table dataTable no-footer" role="grid">
+				<thead>
+					<tr>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Market</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Close</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Open</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">High</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Low</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Volume</th>
+						<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Quote Volume</th>
+					</tr>
+				</thead>
 				<?php
 					foreach($ticker as $tic){		
-						echo '<tr><td>'.$tic['symbol'].'</td>';
+						echo '<tr id="0" role="row" class="odd"><td style="color:#4183c4; padding:20px;">'.$tic['symbol'].'</td>';
 						echo '<td>'.$tic['close'].'</td>';
 						echo '<td>'.$tic['open'].'</td>';
 						echo '<td>'.$tic['high'].'</td>';

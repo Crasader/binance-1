@@ -1,147 +1,31 @@
-<!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<meta charset="utf-8">
-	</head>
-	<style>
-		table {
-			font-family: arial, sans-serif;
-			border-collapse: collapse;
-			width: 100%;
-		}
+@include('html.header')
+		<div style="margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0;" class="ui grid basic segment">
+			<div id="theader" class="twelve wide column left aligned">
+				<button id="btnLayout" class="ui labeled icon button"><i class="list layout icon"></i>  Layout</button>
+				<button id="btnFilters" class="ui labeled icon button"><i class="filter icon"></i><span id="numFilters">0 Filters</span></button>
+				<button id="btnFormat" class="ui labeled icon button"><i class="settings icon"></i>  Format</button>
+				<div id="table_filter" class="dataTables_filter ui input icon" style="padding-left: 5px; height: 36px;"><i class="ui search icon"></i><input type="search" class="" placeholder="Filter currencies..." aria-controls="table">
+				</div>
+			</div>
 
-		td, th {
-			border: 1px solid #dddddd;
-			text-align: left;
-			padding: 8px;
-		}
+			<div class="four wide column right aligned">
+				<div id="affiliate" style="padding: 0; float: right;" class="ui center aligned basic segment">
+					<div style="margin-top: -5px;" class="ui mini statistic">
+						<div class="label">Start trading Crypto now!</div>
+						<div style="height: 16px; margin-bottom: 0; padding-bottom: 0;" class="ui horizontal list">
+							<div style="height: 16px;" class="item"><a href="" style="text-decoration: underline;">Binance</a></div>
+							<div style="height: 16px;" class="item"><a href="bithumb" style="text-decoration: underline;">Bithumb</a></div>
+							<div style="height: 16px;" class="item"><a href="coinbase" style="text-decoration: underline;">Coinbase </a></div>
+							<div style="height: 16px;" class="item"><a href="kraken" style="text-decoration: underline;">Kraken</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-		tr:nth-child(even) {
-			background-color: #dddddd;
-		}
-		/* Absolute Center Spinner */
-		.loading {
-		  position: fixed;
-		  z-index: 999;
-		  height: 2em;
-		  width: 2em;
-		  overflow: show;
-		  margin: auto;
-		  top: 0;
-		  left: 0;
-		  bottom: 0;
-		  right: 0;
-		}
-
-		/* Transparent Overlay */
-		.loading:before {
-		  content: '';
-		  display: block;
-		  position: fixed;
-		  top: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 100%;
-		  background-color: rgba(0,0,0,0.3);
-		}
-
-		/* :not(:required) hides these rules from IE9 and below */
-		.loading:not(:required) {
-		  /* hide "loading..." text */
-		  font: 0/0 a;
-		  color: transparent;
-		  text-shadow: none;
-		  background-color: transparent;
-		  border: 0;
-		}
-
-		.loading:not(:required):after {
-		  content: '';
-		  display: block;
-		  font-size: 10px;
-		  width: 1em;
-		  height: 1em;
-		  margin-top: -0.5em;
-		  -webkit-animation: spinner 1500ms infinite linear;
-		  -moz-animation: spinner 1500ms infinite linear;
-		  -ms-animation: spinner 1500ms infinite linear;
-		  -o-animation: spinner 1500ms infinite linear;
-		  animation: spinner 1500ms infinite linear;
-		  border-radius: 0.5em;
-		  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-		  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-		}
-
-		/* Animation */
-
-		@-webkit-keyframes spinner {
-		  0% {
-			-webkit-transform: rotate(0deg);
-			-moz-transform: rotate(0deg);
-			-ms-transform: rotate(0deg);
-			-o-transform: rotate(0deg);
-			transform: rotate(0deg);
-		  }
-		  100% {
-			-webkit-transform: rotate(360deg);
-			-moz-transform: rotate(360deg);
-			-ms-transform: rotate(360deg);
-			-o-transform: rotate(360deg);
-			transform: rotate(360deg);
-		  }
-		}
-		@-moz-keyframes spinner {
-		  0% {
-			-webkit-transform: rotate(0deg);
-			-moz-transform: rotate(0deg);
-			-ms-transform: rotate(0deg);
-			-o-transform: rotate(0deg);
-			transform: rotate(0deg);
-		  }
-		  100% {
-			-webkit-transform: rotate(360deg);
-			-moz-transform: rotate(360deg);
-			-ms-transform: rotate(360deg);
-			-o-transform: rotate(360deg);
-			transform: rotate(360deg);
-		  }
-		}
-		@-o-keyframes spinner {
-		  0% {
-			-webkit-transform: rotate(0deg);
-			-moz-transform: rotate(0deg);
-			-ms-transform: rotate(0deg);
-			-o-transform: rotate(0deg);
-			transform: rotate(0deg);
-		  }
-		  100% {
-			-webkit-transform: rotate(360deg);
-			-moz-transform: rotate(360deg);
-			-ms-transform: rotate(360deg);
-			-o-transform: rotate(360deg);
-			transform: rotate(360deg);
-		  }
-		}
-		@keyframes spinner {
-		  0% {
-			-webkit-transform: rotate(0deg);
-			-moz-transform: rotate(0deg);
-			-ms-transform: rotate(0deg);
-			-o-transform: rotate(0deg);
-			transform: rotate(0deg);
-		  }
-		  100% {
-			-webkit-transform: rotate(360deg);
-			-moz-transform: rotate(360deg);
-			-ms-transform: rotate(360deg);
-			-o-transform: rotate(360deg);
-			transform: rotate(360deg);
-		  }
-		}
-	</style>
-	<body>
-	
-		<div class="click"></div>
+		<div id="table_wrapper" class="click dataTables_wrapper dt-semanticUI no-footer">
+			
+		</div>
 		<div class="loading">Loading&#8230;</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>	

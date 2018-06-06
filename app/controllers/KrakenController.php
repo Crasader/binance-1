@@ -24,8 +24,17 @@ class KrakenController extends BaseController {
 		$ary_cur = array("DASHUSD","BCHUSD","BCHEUR","EOSEUR","EOSUSD","GNOETH","GNOEUR","GNOUSD","GNOXBT");		
 		?>
 		<!--result-->
-		<table>
-			<thead><tr><th>Market Pair</th><th>Last</th><th>High</th><th>Low</th><th>24 Hour Volume</th><th>Weighted Avg</th></tr></thead>			
+		<table id="table" cellspacing="0" width="100%" style="visibility: visible; width: 100%;" class="ui striped table dataTable no-footer" role="grid">
+			<thead>
+				<tr>
+					<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Market Pair</th>
+					<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Last</th>
+					<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">High</th>
+					<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Low</th>
+					<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">24 Hour Volume</th>
+					<th class="left aligned sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1">Weighted Avg</th>
+				</tr>
+			</thead>			
 			<tbody>
 			<?php			
 				  foreach($ary_cur as $valc){
@@ -37,8 +46,8 @@ class KrakenController extends BaseController {
 						$high_rec = $resn['result'][$valc]['h'][1];
 						$low_rec = $resn['result'][$valc]['l'][0];
 						?>
-						<tr>
-							<td><?php echo $valc; ?></td>
+						<tr id="0" role="row" class="odd">
+							<td style="color:#4183c4; padding:20px;"><?php echo $valc; ?></td>
 							<td><?php echo $last_rec; ?></td>
 							<td><?php echo $high_rec; ?></td>
 							<td><?php echo $low_rec; ?></td>
