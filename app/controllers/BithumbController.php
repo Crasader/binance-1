@@ -38,15 +38,15 @@ class BithumbController extends BaseController {
 			for ($i = 0; $i < $length; $i++) {
 				$bn = $ary[$i];
 				if($bn!='date'){
-					$open_p = $result->data->$bn->opening_price;			
-					$close_p = $result->data->$bn->closing_price;			
-					$min_p = $result->data->$bn->min_price;			
-					$max_p = $result->data->$bn->max_price;			
-					$average_p = $result->data->$bn->average_price;			
-					$vol1_p = $result->data->$bn->volume_1day;			
-					$vol7_p = $result->data->$bn->volume_7day;			
-					$buy_p = $result->data->$bn->buy_price;
-					$sell_p = $result->data->$bn->sell_price;
+					$open_p = $result->data->$bn->opening_price; 			
+					$close_p = $result->data->$bn->closing_price;	 		
+					$min_p = $result->data->$bn->min_price;			 
+					$max_p = $result->data->$bn->max_price;			 
+					$average_p = $result->data->$bn->average_price; 			
+					$vol1_p = $result->data->$bn->volume_1day;		 	
+					$vol7_p = $result->data->$bn->volume_7day;		 	
+					$buy_p = $result->data->$bn->buy_price; 
+					$sell_p = $result->data->$bn->sell_price; 
 					?>
 					<tr id="0" role="row" class="odd">
 						<td style="color:#4183c4; padding:20px;"><?php echo $bn; ?></td>

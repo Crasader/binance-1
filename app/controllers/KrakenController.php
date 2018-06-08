@@ -14,13 +14,14 @@ class KrakenController extends BaseController {
 	}
 
 	public function krakenResponse(){
-		$apike = $this->apikey;
+		$apikey = $this->apikey;
 		$apisec = $this->apisec;
 		$beta = true; 
 		$version = 0;
 		$sslverify = $beta ? false : true;
-		$kraken = new KrakenAPI($apike, $apisec, $this->url, $version, $sslverify);
+		$kraken = new KrakenAPI($apikey, $apisec, $this->url, $version, $sslverify);
 		/*creating array for getting response*/
+		/**array for values**/
 		$ary_cur = array("DASHUSD","BCHUSD","BCHEUR","EOSEUR","EOSUSD","GNOETH","GNOEUR","GNOUSD","GNOXBT");		
 		?>
 		<!--result-->

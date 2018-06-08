@@ -28,13 +28,13 @@ class CoinbaseController extends BaseController {
 			</thead>
 			<tbody>
 				<?php
-				foreach($symbol_ary as $sym){
-					$finalv = $sym.'-'.$currency;
+				foreach($symbol_ary as $symvl){
+					$finalv = $symvl.'-'.$currency;
 					$buyPrice = $client->getBuyPrice("$finalv");
 					$sellPrice = $client->getSellPrice("$finalv");
 					?>
 						<tr id="0" role="row" class="odd">
-							<td style="color:#4183c4; padding:20px;"><?php echo $sym; ?></td>
+							<td style="color:#4183c4; padding:20px;"><?php echo $symvl; ?></td>
 							<td><?php echo $sellPrice->getAmount(); ?></td>
 							<td><?php echo $buyPrice->getAmount(); ?></td>
 							<td><?php echo $currency; ?></td>

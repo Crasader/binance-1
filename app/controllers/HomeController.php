@@ -15,9 +15,9 @@ class HomeController extends BaseController {
 	}	
 	
 	public function binanceResponse() {
-		$apik = $this->apikey;
+		$apikey = $this->apikey;
 		$apisec = $this->apisec;
-		$api = new Binance\API($apik,$apisec);
+		$api = new Binance\API($apikey,$apisec);
 		$ticker = $api->prices();	
 		/**Getting response**/
 		$api->miniTicker(function($api, $ticker) {			
@@ -36,14 +36,14 @@ class HomeController extends BaseController {
 					</tr>
 				</thead>
 				<?php
-					foreach($ticker as $tic){		
-						echo '<tr id="0" role="row" class="odd"><td style="color:#4183c4; padding:20px;">'.$tic['symbol'].'</td>';
-						echo '<td>'.$tic['close'].'</td>';
-						echo '<td>'.$tic['open'].'</td>';
-						echo '<td>'.$tic['high'].'</td>';
-						echo '<td>'.$tic['low'].'</td>';
-						echo '<td>'.$tic['volume'].'</td>';
-						echo '<td>'.$tic['quoteVolume'].'</td></tr>';					
+					foreach($ticker as $res_value){		
+						echo '<tr id="0" role="row" class="odd"><td style="color:#4183c4; padding:20px;">'.$res_value['symbol'].'</td>';
+						echo '<td>'.$res_value['close'].'</td>';
+						echo '<td>'.$res_value['open'].'</td>';
+						echo '<td>'.$res_value['high'].'</td>';
+						echo '<td>'.$res_value['low'].'</td>';
+						echo '<td>'.$res_value['volume'].'</td>';
+						echo '<td>'.$res_value['quoteVolume'].'</td></tr>';					
 					}				
 				?>
 			</table>
